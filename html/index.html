@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GameWeb</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0 user-scalable=0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    </style>
+</head>
+<body>
+<div class="blur">
+    <div class="main">
+        <div class="main__block">
+            <div id="userid">User-ID: 35453455</div>
+            <div id="text_info">Ищем противника...</div>
+            <img id="gameend" src="src/draw.gif" style="display: none;">
+            <div id="choose" style="display: none;">
+                <div id="rock" class="itemchoose"><svg viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffffff" d="M228.813 23L68.75 72.28 39.5 182.095l47.53-21.22 10.44-4.655 2.5 11.155 8.75 39.125 6.405 28.53-21.75-19.53-15.72-14.125-28.218 32.344 140.657 136 9.656-40.69 7.53-31.874 10.407 31.063 54.72 163.592L432.343 465.5l45.75-202.938-84.563-148.718L228.814 23zm-57.688 49.875l-27.813 39.906-3.25 73.44-27.187-88.94 58.25-24.405zm17.844 93.406l113.124 155.25L407 355.407l-107.375-.844-110.656-128v-60.28zM79.312 330.25l140.125 153.125-5.563-65.875-134.563-87.25z"></path></g></svg></div>
+                <div id="scissors" class="itemchoose"><svg height="200px" width="200px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffffff;} </style> <g> <path class="st0" d="M143.155,241.403c-5.379,0.154-11.094-0.285-14.076-2.271c-2.983-1.979-6.578-7.847-10.202-12.571 c-16.96-22.075-47.036-31.308-74.281-20.702c-33.079,12.87-49.447,50.13-36.57,83.201c12.877,33.079,50.122,49.454,83.201,36.577 c16.354-6.369,28.612-18.703,35.281-33.546c1.122-2.508,1.742-3.916,3.644-5.783c1.909-1.868,5.79-3.053,8.899-3.694 c18.257-3.77,33.594-3.902,46.429-1.958l2.258-6.104c0.725-2.028,5.15-14.473,11.686-32.785 C184.268,241.919,162.443,240.846,143.155,241.403z M80.511,298.125c-17.874,6.954-38.012-1.895-44.974-19.776 c-6.954-17.88,1.896-38.012,19.769-44.973c17.881-6.968,38.012,1.889,44.981,19.762C107.241,271.018,98.391,291.157,80.511,298.125 z"></path> <path class="st0" d="M507.47,169.171c-3.777-9.714-15.386-10.788-44.151-3.31c-15.581,4.049-87.598,25.706-150.424,44.73 c-6.195,32.221-11.79,61.139-15.066,78.03c63.886-30.674,161.908-77.884,179.342-87.145 C503.429,187.525,511.261,178.884,507.47,169.171z"></path> <path class="st0" d="M303.649,392.949c-5.073-3.114-11.282-6.076-13.568-8.836c-2.278-2.767-3.31-8.404-3.714-13.77 c-1.993-26.298-7.526-57.056-6.836-69.473c0,0,44.179-227.416,48.618-256.808c4.438-29.4,2.16-40.827-7.888-43.58 c-10.055-2.745-17.832,5.938-28.974,33.497c-11.135,27.567-88.824,245.812-88.824,245.812s51.175,20.298,43.336,98.929 c-0.314,3.15-1.087,7.136-2.746,9.226c-1.658,2.098-2.989,2.857-5.365,4.237c-14.069,8.167-25.058,21.651-29.685,38.583 c-9.365,34.235,10.801,69.578,45.029,78.944c34.242,9.358,69.585-10.808,78.943-45.043 C339.688,436.466,327.368,407.513,303.649,392.949z M243.749,280.28c-6.481-1.77-10.299-8.452-8.522-14.933 c1.77-6.48,8.452-10.299,14.933-8.529c6.481,1.777,10.292,8.466,8.522,14.94C256.912,278.238,250.223,282.049,243.749,280.28z M303.495,456.876c-5.059,18.507-24.166,29.406-42.674,24.347c-18.508-5.059-29.406-24.166-24.347-42.674 c5.059-18.508,24.173-29.406,42.674-24.34C297.656,419.262,308.554,438.375,303.495,456.876z"></path> </g> </g></svg></div>
+                <div id="paper" class="itemchoose"><svg fill="#ffffff"  height="200px" width="200px" version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M52,64c2.206,0,4-1.794,4-4V4c0-2.206-1.794-4-4-4H26c-1.638,0-3.668,0.841-4.828,2L10,13.171C8.841,14.33,8,16.36,8,18v42 c0,2.206,1.794,4,4,4H52z M52,4l0,56h0H12V18h10c2.206,0,4-1.794,4-4V4H52z M22,6.828V14h-7.172L22,6.828z"></path> <path d="M32,16h12c1.104,0,2-0.896,2-2s-0.896-2-2-2H32c-1.104,0-2,0.896-2,2S30.896,16,32,16z"></path> <path d="M44,22H20c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2S45.104,22,44,22z"></path> <path d="M44,32H20c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2S45.104,32,44,32z"></path> <path d="M44,42H20c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2S45.104,42,44,42z"></path> <path d="M44,52H20c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2S45.104,52,44,52z"></path> </g> </g></svg></div>
+            </div>
+            <div id="enemy-info" style="display: none;">Вы играете против: 534645674756</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</html>
