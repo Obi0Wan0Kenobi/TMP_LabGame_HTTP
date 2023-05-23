@@ -2,9 +2,12 @@ package db
 
 import (
 	"LabRockPaperScissors/structs"
+	"encoding/json"
 	"fmt"
 	"time"
 )
+
+var Connections []structs.ConnectionWS
 
 func RemovefromMas(list []string, item string) []string {
 	for i, v := range list {
@@ -53,6 +56,17 @@ func CompareEnemys() {
 			fmt.Println("finded")
 			_, _ = DB.Exec("UPDATE players SET playing=1,playingwith=$1 where useruid=$2", enemy2.Useruid, enemy1.Useruid)
 			_, _ = DB.Exec("UPDATE players SET playing=1,playingwith=$1 where useruid=$2", enemy1.Useruid, enemy2.Useruid)
+			for _, item := range Connections {
+				if item.UID == enemy1.Useruid {
+					jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Finded": true, "Playingwith": enemy2.Useruid})
+					item.Connection.WriteMessage(1, jsonstring)
+				}
+				if item.UID == enemy2.Useruid {
+					jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Finded": true, "Playingwith": enemy1.Useruid})
+					item.Connection.WriteMessage(1, jsonstring)
+				}
+			}
+
 		} else {
 			//fmt.Println(enemy2.Useruid)
 		}
@@ -85,14 +99,50 @@ func RestartGame(user structs.User) {
 func Win1_Lose2(user1 structs.User, user2 structs.User) {
 	_, _ = DB.Exec("UPDATE players SET gamestatus=$1 where useruid=$2", "Вы выиграли!", user1.Useruid)
 	_, _ = DB.Exec("UPDATE players SET gamestatus=$1 where useruid=$2", "Вы проиграли!", user2.Useruid)
+
+	for _, item := range Connections {
+		if item.UID == user1.Useruid {
+
+			jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Wait": false, "Windata": "Вы выиграли!"})
+			item.Connection.WriteMessage(1, jsonstring)
+		}
+		if item.UID == user2.Useruid {
+			jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Wait": false, "Windata": "Вы проиграли!"})
+			item.Connection.WriteMessage(1, jsonstring)
+		}
+	}
+
 }
 func Win2_Lose1(user1 structs.User, user2 structs.User) {
 	_, _ = DB.Exec("UPDATE players SET gamestatus=$1 where useruid=$2", "Вы проиграли!", user1.Useruid)
 	_, _ = DB.Exec("UPDATE players SET gamestatus=$1 where useruid=$2", "Вы выиграли!", user2.Useruid)
+
+	for _, item := range Connections {
+		if item.UID == user1.Useruid {
+
+			jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Wait": false, "Windata": "Вы проиграли!"})
+			item.Connection.WriteMessage(1, jsonstring)
+		}
+		if item.UID == user2.Useruid {
+			jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Wait": false, "Windata": "Вы выиграли!"})
+			item.Connection.WriteMessage(1, jsonstring)
+		}
+	}
 }
 func Draw(user1 structs.User, user2 structs.User) {
 	_, _ = DB.Exec("UPDATE players SET gamestatus=$1 where useruid=$2", "Ничья", user1.Useruid)
 	_, _ = DB.Exec("UPDATE players SET gamestatus=$1 where useruid=$2", "Ничья", user2.Useruid)
+	for _, item := range Connections {
+		if item.UID == user1.Useruid {
+
+			jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Wait": false, "Windata": "Ничья"})
+			item.Connection.WriteMessage(1, jsonstring)
+		}
+		if item.UID == user2.Useruid {
+			jsonstring, _ := json.Marshal(map[string]interface{}{"AnswerId": 1, "Wait": false, "Windata": "Ничья"})
+			item.Connection.WriteMessage(1, jsonstring)
+		}
+	}
 }
 
 func GameResult() {
